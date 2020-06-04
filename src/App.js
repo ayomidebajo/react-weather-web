@@ -1,24 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react';
+import './styles/layout.scss';
+import Index  from './components/Index';
 
-function App() {
+const App = () => {
+  const [getWeather, setGetWeather] = useState([])
+
+  const clientId = "5cbb404866bf40568b1154324200406";
+
+  const Weather = async (text) => {
+    const res = await fetch(
+      `http://api.weatherapi.com/v1/forecast.json?key=${clientId}&q=${text}`
+    );
+    setGetWeather(res)
+
+    console.log(res.url);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Index Weather={Weather} getWeather={getWeather}/>
     </div>
   );
 }
