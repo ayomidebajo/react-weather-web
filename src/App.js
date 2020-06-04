@@ -14,7 +14,7 @@ const App = () => {
     );
     setGetWeather(res)
 
-    console.log(res.url);
+    console.log(res.url.data);
   };
   return (
     <div className="App">
