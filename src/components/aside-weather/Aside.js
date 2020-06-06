@@ -1,11 +1,15 @@
 import React from "react";
 import { useState } from "react";
+// import Loading from "../loading/Loading";
 
-const Aside = ({ weather }) => {
+const Aside = ({ weather, weatherObj, loading }) => {
+
+   
+  
+
   const [text, setText] = useState("");
 
   const changeHandler = (e) => {
-    e.preventDefault();
     setText(e.target.value);
   };
 
@@ -16,9 +20,12 @@ const Aside = ({ weather }) => {
       setText("");
     }
   };
+
+
   return (
     <div className="aside--container">
       <input
+   
         onChange={changeHandler}
         onKeyDown={keyPress}
         type="text"
@@ -35,7 +42,7 @@ const Aside = ({ weather }) => {
         <div className="time">16:00</div>
         <span className="border-line"></span>
         <div className="rain">Rain - 30%</div>
-        <div className="location">New York, NY, USA</div>
+        <div className="location"></div>
       </div>
     </div>
   );

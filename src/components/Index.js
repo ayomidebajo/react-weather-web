@@ -3,13 +3,13 @@ import Aside from "./aside-weather/Aside";
 import Weekly from "./weekly-weather/Weekly";
 import Today from "./today-highlights/Today";
 
-const Index = ({Weather}) => {
- 
+const Index = ({ Weather, getWeather, loading }) => {
+
 
   return (
     <div className="dashboard--container">
       <div className="aside">
-        <Aside weather={Weather} />
+        <Aside weather={Weather} weatherObj={getWeather} loading={loading}/>
       </div>
       <div className="weekly">
         <Weekly />
