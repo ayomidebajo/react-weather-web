@@ -11,11 +11,13 @@ const Index = ({ Weather, getWeather, loading }) => {
       <div className="aside">
         <Aside weather={Weather} weatherObj={getWeather} loading={loading}/>
       </div>
+      <div className="some">
       <div className="weekly">
         <Weekly />
       </div>
       <div className="today">
         <Today />
+      </div>
       </div>
     </div>
   );

@@ -1,12 +1,9 @@
 import React from "react";
 import { useState } from "react";
+import Image from "../../images/sun-clouds.jpg";
 // import Loading from "../loading/Loading";
 
 const Aside = ({ weather, weatherObj, loading }) => {
-
-   
-  
-
   const [text, setText] = useState("");
 
   const changeHandler = (e) => {
@@ -18,14 +15,13 @@ const Aside = ({ weather, weatherObj, loading }) => {
       console.log(e.target.value);
       weather(text);
       setText("");
+      console.log(weatherObj);
     }
   };
-
 
   return (
     <div className="aside--container">
       <input
-   
         onChange={changeHandler}
         onKeyDown={keyPress}
         type="text"
@@ -33,19 +29,42 @@ const Aside = ({ weather, weatherObj, loading }) => {
         value={text}
         placeholder="city,state,country"
       />
-      <div className="icon">An icon</div>
-      <div className="temp">
-        <h1>12 C</h1>
-      </div>
-      <div className="date">
-        <div className="day">Monday</div>
-        <div className="time">16:00</div>
-        <span className="border-line"></span>
-        <div className="rain">Rain - 30%</div>
-        <div className="location"></div>
-      </div>
+      
+        <div className="icon">
+          <img src={Image} alt="forecast logo" width="40%" />
+        </div>
+        <div>
+          <h1 className="temp">12 C</h1>
+        </div>
+        <div className="date">
+          <div className="day">
+            Monday, <span className="time">16:00</span>
+          </div>
+          <div className="mostly">☁️ Mostly Cloudy</div>
+          <div className="rain">Rain - 30%</div>
+          <div className="location">Gbagada, Lagos, Nigeria</div>
+        </div>
     </div>
   );
 };
+
+// {Object.keys(weather).map((item, i) => (
+//   <ul key={i} className="grid-list">
+//     <li className="card-container">
+//       <div className="card--item">
+//         <p className="book-title">{weather[item].location.name}</p>
+//         <div className="sub-container">
+//           <p>Date published: </p>
+
+//           <p>Author: </p>
+
+//           <button className="btn-details" type="submit">
+//             View more details
+//           </button>
+//         </div>
+//       </div>
+//     </li>
+//   </ul>
+// ))}
 
 export default Aside;

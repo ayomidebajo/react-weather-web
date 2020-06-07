@@ -3,7 +3,13 @@ import React from 'react'
  const Weekly = () => {
   return (
     <div className="weekly--container">
-      <p>Weekly</p>
+      <div className="card"></div>
+      <div className="card"></div>
+      <div className="card"></div>
+      <div className="card"></div>
+      <div className="card"></div>
+      <div className="card"></div>
+      <div className="card"></div>
     </div>
   )
 }
