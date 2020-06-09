@@ -1,11 +1,16 @@
-import React from 'react'
+import React from "react";
+import spinner from "../../images/spinner.gif";
 
- const Loading = () => {
+const Loading = () => {
   return (
     <div>
-      Your results are loading.....
+      <img
+        src={spinner}
+        alt="loading..."
+        style={{ width: "200px", margin: "auto", display: "block" }}
+      />
     </div>
-  )
-}
+  );
+};
 
 export default Loading;

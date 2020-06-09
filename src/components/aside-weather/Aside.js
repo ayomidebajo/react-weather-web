@@ -1,10 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import Image from "../../images/sun-clouds.jpg";
-// import Loading from "../loading/Loading";
+import Loading from "../loading/Loading";
 
 const Aside = ({ weather, weatherObj, loading }) => {
   const [text, setText] = useState("");
+  const { current, forecast, location } = weatherObj;
 
   const changeHandler = (e) => {
     setText(e.target.value);
@@ -15,37 +16,47 @@ const Aside = ({ weather, weatherObj, loading }) => {
       console.log(e.target.value);
       weather(text);
       setText("");
-      console.log(weatherObj);
+      // console.log(`${weatherObj[2]}`);
     }
   };
 
-  return (
-    <div className="aside--container">
-      <input
-        onChange={changeHandler}
-        onKeyDown={keyPress}
-        type="text"
-        className="input-field"
-        value={text}
-        placeholder="city,state,country"
-      />
-      
-        <div className="icon">
-          <img src={Image} alt="forecast logo" width="40%" />
-        </div>
-        <div>
-          <h1 className="temp">12 C</h1>
-        </div>
-        <div className="date">
-          <div className="day">
-            Monday, <span className="time">16:00</span>
-          </div>
-          <div className="mostly">☁️ Mostly Cloudy</div>
-          <div className="rain">Rain - 30%</div>
-          <div className="location">Gbagada, Lagos, Nigeria</div>
-        </div>
-    </div>
-  );
+  if (loading) {
+    return <Loading />;
+  } else {
+    return (
+      <div className="aside--container">
+        <input
+          onChange={changeHandler}
+          onKeyDown={keyPress}
+          type="text"
+          className="input-field"
+          value={text}
+          placeholder="city,state,country"
+        />
+
+        {/* {Object.keys(weatherObj).map((item, i) => {
+          <div className="display--container">
+            <div className="icon">
+              <img src={Image} alt="forecast logo" width="40%" />
+            </div>
+            <div key={item}>
+              <h1 className="temp">12 C</h1>
+            </div>
+            <div className="date">
+              <div className="day">
+                Monday, <span className="time">16:00</span>
+              </div>
+              <div className="mostly">
+                ☁️ {weatherObj[item].current.feelslike_c}
+              </div>
+              <div className="rain">Rain - 30%</div>
+              <div className="location">Gbagada, Lagos, Nigeria</div>
+            </div>
+          </div>;
+        })} */}
+      </div>
+    );
+  }
 };
 
 // {Object.keys(weather).map((item, i) => (

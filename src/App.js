@@ -12,24 +12,25 @@ const App = () => {
     console.log("Uselayout has been called!");
 
     searchWeather();
-  }, []);
+  }, [getWeather]);
   const clientId = "5cbb404866bf40568b1154324200406";
 
   const searchWeather = async (text) => {
+    setLoading(true);
     if (text) {
       const res = await fetch(
         `http://api.weatherapi.com/v1/forecast.json?key=${clientId}&q=${text}&days=7`
       );
 
       const responseData = await res.json();
-        console.log(responseData);
-        setLoading(true)
+      console.log(responseData);
 
       return setGetWeather(responseData);
     }
-  
+    console.log(getWeather);
+    setLoading(false);
   };
-  
+
   return (
     <div className="App">
       <Index
