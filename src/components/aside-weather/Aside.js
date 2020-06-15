@@ -1,22 +1,20 @@
 import React from "react";
-import { useState } from "react";
-import Image from "../../images/sun-clouds.jpg";
+import { useState, useEffect } from "react";
+// import Image from "../../images/sun-clouds.jpg";
 import Loading from "../loading/Loading";
 
 const Aside = ({ weather, weatherObj, loading }) => {
-  const [text, setText] = useState("");
-  const { current, forecast, location } = weatherObj;
+  const [text, setText] = useState("gbagada,lagos,nigeria");
 
   const changeHandler = (e) => {
     setText(e.target.value);
   };
 
-  const keyPress = (e) => {
+  const keyPressHandler = async (e) => {
     if (e.keyCode === 13) {
       console.log(e.target.value);
       weather(text);
       setText("");
-      // console.log(`${weatherObj[2]}`);
     }
   };
 
@@ -26,8 +24,8 @@ const Aside = ({ weather, weatherObj, loading }) => {
     return (
       <div className="aside--container">
         <input
+          onKeyDown={keyPressHandler}
           onChange={changeHandler}
-          onKeyDown={keyPress}
           type="text"
           className="input-field"
           value={text}

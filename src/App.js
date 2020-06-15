@@ -1,5 +1,4 @@
 import React from "react";
-// import axios from "axios";
 import { useState, useEffect } from "react";
 import "./styles/layout.scss";
 import Index from "./components/Index";
@@ -8,11 +7,13 @@ const App = () => {
   const [getWeather, setGetWeather] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    console.log("Uselayout has been called!");
+  useEffect(
+    (text) => {
+      searchWeather(text);
+    },
+    [getWeather]
+  );
 
-    searchWeather();
-  }, [getWeather]);
   const clientId = "5cbb404866bf40568b1154324200406";
 
   const searchWeather = async (text) => {
@@ -27,7 +28,7 @@ const App = () => {
 
       return setGetWeather(responseData);
     }
-    console.log(getWeather);
+    console.log("some data!", getWeather);
     setLoading(false);
   };
 
