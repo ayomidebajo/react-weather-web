@@ -1,36 +1,36 @@
 .aside--container {
-    margin: 50px;
+  margin: 45px;
 }
 
 .input-field {
-    border: 1px solid rgb(207, 203, 203);
-    border-radius: 20px;
-    width: 90%;
-    padding: 10px;
+  border: 1px solid #cfcbcb;
+  border-radius: 20px;
+  width: 250px;
+  padding: 10px;
+  outline: none;
 }
-
 .icon {
   padding-top: 30px;
 }
 
 .temp {
-    font-size: 40px;
-    height: 40px;
+  font-size: 40px;
+  height: 40px;
 }
 
 .day {
-    font-size: 20px;
-    height: 50px;
-    border-bottom: 1px solid rgb(216, 213, 213);
+  font-size: 20px;
+  height: 50px;
+  border-bottom: 1px solid rgb(216, 213, 213);
 }
 
 .time {
-    color: grey;
+  color: grey;
 }
 
 .mostly,
 .rain {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
 .location {

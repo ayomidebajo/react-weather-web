@@ -1,79 +1,44 @@
 import React from "react";
-import { useState, useEffect } from "react";
-// import Image from "../../images/sun-clouds.jpg";
+import AsideInput from "./AsideInput";
 import Loading from "../loading/Loading";
 
-const Aside = ({ weather, weatherObj, loading }) => {
-  const [text, setText] = useState("gbagada,lagos,nigeria");
+const Aside = ({ getWeather, loading }) => {
+  if (Object.keys(getWeather).length > 1) {
+    console.log("the length from aside", Object.keys(getWeather).length);
+    console.log("some data! from aside!", getWeather.location.lat);
+  }
 
-  const changeHandler = (e) => {
-    setText(e.target.value);
-  };
-
-  const keyPressHandler = async (e) => {
-    if (e.keyCode === 13) {
-      console.log(e.target.value);
-      weather(text);
-      setText("");
-    }
-  };
-
-  if (loading) {
-    return <Loading />;
-  } else {
+  if (Object.keys(getWeather).length > 1) {
     return (
-      <div className="aside--container">
-        <input
-          onKeyDown={keyPressHandler}
-          onChange={changeHandler}
-          type="text"
-          className="input-field"
-          value={text}
-          placeholder="city,state,country"
-        />
-
-        {/* {Object.keys(weatherObj).map((item, i) => {
-          <div className="display--container">
+      <div>
+        {Object.keys(getWeather).map((item, i) => (
+          <div key={item} className="display--container">
             <div className="icon">
-              <img src={Image} alt="forecast logo" width="40%" />
+              <img
+                src={getWeather.current.condition.icon}
+                alt="forecast logo"
+                width="40%"
+              />
             </div>
-            <div key={item}>
-              <h1 className="temp">12 C</h1>
+            <div>
+              <h1 className="temp">{getWeather.current.temp_c} C</h1>
             </div>
             <div className="date">
               <div className="day">
-                Monday, <span className="time">16:00</span>
+                Monday,{" "}
+                <span className="time">{getWeather.current.last_updated}</span>
               </div>
-              <div className="mostly">
-                ☁️ {weatherObj[item].current.feelslike_c}
-              </div>
+              <div className="mostly">{getWeather.location.lat}</div>
               <div className="rain">Rain - 30%</div>
               <div className="location">Gbagada, Lagos, Nigeria</div>
             </div>
-          </div>;
-        })} */}
+          </div>
+        ))}
       </div>
     );
+  } else {
+    return <p>loading</p>;
   }
 };
-
-// {Object.keys(weather).map((item, i) => (
-//   <ul key={i} className="grid-list">
-//     <li className="card-container">
-//       <div className="card--item">
-//         <p className="book-title">{weather[item].location.name}</p>
-//         <div className="sub-container">
-//           <p>Date published: </p>
-
-//           <p>Author: </p>
-
-//           <button className="btn-details" type="submit">
-//             View more details
-//           </button>
-//         </div>
-//       </div>
-//     </li>
-//   </ul>
-// ))}
 
 export default Aside;
