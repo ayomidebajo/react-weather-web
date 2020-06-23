@@ -1,9 +1,8 @@
 import React from "react";
-import { useState } from "react";
-
+import { useState, useEffect } from "react";
 // import Loading from "../loading/Loading";
 
-const AsideInput = ({ Weather }) => {
+const AsideInput = ({ Weather, loading }) => {
   const [text, setText] = useState("gbagada,lagos,nigeria");
 
   const changeHandler = (e) => {
