@@ -1,14 +1,13 @@
 import React from "react";
+import Moment from "react-moment";
 import Image from "../../images/sun-clouds.jpg";
 
-const Aside = ({ getWeather, loading }) => {
+const Aside = ({ getWeather, locate }) => {
+  const date = new Date();
   if (Object.keys(getWeather).length > 1) {
-    console.log("the length from aside", Object.keys(getWeather).length);
-    console.log("some data! from aside!", getWeather.location.lat);
-  }
+    const { current } = getWeather;
+    console.log("from aside", locate);
 
-  if (Object.keys(getWeather).length > 1) {
-    const { current, location } = getWeather;
     return (
       <div>
         <div className="display--container">
@@ -20,11 +19,14 @@ const Aside = ({ getWeather, loading }) => {
           </div>
           <div className="date">
             <div className="day">
-              Monday, <span className="time">{location.localtime}</span>
+              <Moment format="ddd">{date}</Moment>,
+              <span className="time">
+                <Moment format="LT">{date}</Moment>
+              </span>
             </div>
             <div className="mostly">{current.condition.text}</div>
-            <div className="rain">Rain - 30%</div>
-            <div className="location">Gbagada, Lagos, Nigeria</div>
+            <div className="rain">Humidity - {current.humidity}%</div>
+            <div className="location">{locate}</div>
           </div>
         </div>
       </div>
@@ -41,10 +43,13 @@ const Aside = ({ getWeather, loading }) => {
           </div>
           <div className="date">
             <div className="day">
-              Monday, <span className="time">7:00</span>
+              <Moment format="ddd">{date}</Moment>,{" "}
+              <span className="time">
+                <Moment format="LT">{date}</Moment>
+              </span>
             </div>
             <div className="mostly">Mostly Cloudy</div>
-            <div className="rain">Rain - 30%</div>
+            <div className="rain">Humidity - 30%</div>
             <div className="location">Gbagada, Lagos, Nigeria</div>
           </div>
         </div>
