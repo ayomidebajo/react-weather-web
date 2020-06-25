@@ -35,10 +35,13 @@ body {
   grid-gap: 10px;
 }
 
+.heading-h2 {
+  padding-top: 22px;
+}
+
 .weekly {
   grid-column: 1 / 5;
   grid-row: 1;
-  padding-top: 30px;
   padding-right: 30px;
 }
 
