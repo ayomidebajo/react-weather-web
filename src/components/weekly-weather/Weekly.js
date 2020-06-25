@@ -1,31 +1,42 @@
 import React from "react";
-import Moment from 'react-moment';
-
+import Moment from "react-moment";
 
 const Weekly = ({ weatherObj }) => {
   const { forecast } = weatherObj;
   if (Object.keys(weatherObj).length > 1) {
-   
-    
     return (
       <div className="weekly--container">
         {Object.keys(weatherObj.forecast.forecastday).map((item, i) => (
           <div key={i} className="card">
-            <div>
-              <div className="day-weekly">
-              <Moment format="ddd">
-              {forecast.forecastday[item].date}
-            </Moment>
+            <div className="inner--container">
+              <div className="">
+                <div className="day-weekly">
+                  <Moment format="ddd">
+                    {forecast.forecastday[item].date}
+                  </Moment>
+                </div>
+                <div className="icon-weekly">
+                  <img
+                    src={forecast.forecastday[item].day.condition.icon}
+                    alt="icon"
+                    width="40px"
+                  />
+                </div>
+                <div className="temp-weekly">
+                  {forecast.forecastday[item].day.avgtemp_c} C
+                </div>
               </div>
-              <div className="icon-weekly">
-                <img
-                  src={forecast.forecastday[item].day.condition.icon}
-                  alt="icon"
-                  width="25%"
-                />
-              </div>
-              <div className="temp-weekly">
-                {forecast.forecastday[item].day.avgtemp_c} C
+              <div className="divider"></div>
+              <div className="other-details">
+                <div className="humidity-weekly">
+                  humidity - {forecast.forecastday[item].day.avghumidity}
+                </div>
+                <div className="rain-weekly">
+                  Rain - {forecast.forecastday[item].day.daily_chance_of_rain}%
+                </div>
+                <div className="uv-index-weekly">
+                  UV index -{forecast.forecastday[item].day.uv}
+                </div>
               </div>
             </div>
           </div>
@@ -38,9 +49,11 @@ const Weekly = ({ weatherObj }) => {
   }
 };
 
-{/* <Moment parse="ddd dddd">
+{
+  /* <Moment parse="ddd dddd">
                 {forecast.forecastday[item].date}
-             </Moment> */}
+             </Moment> */
+}
 
 {
   /* <div className="weekly--container" key={i}>
