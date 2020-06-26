@@ -11,6 +11,8 @@ const Index = ({ Weather, getWeather, loading }) => {
           <Weekly weatherObj={getWeather} />
         </div>
         <div className="today">
+          <div className="border-line-highlights"></div>
+          <h3 className="heading-h3">Today's Highlights</h3>
           <Today weatherObj={getWeather} />
         </div>
       </div>

@@ -29,13 +29,13 @@ const Weekly = ({ weatherObj }) => {
               <div className="divider"></div>
               <div className="other-details">
                 <div className="humidity-weekly">
-                  humidity - {forecast.forecastday[item].day.avghumidity}
+                <i class="fas fa-tint"></i> humidity - {forecast.forecastday[item].day.avghumidity}
                 </div>
                 <div className="rain-weekly">
-                  Rain - {forecast.forecastday[item].day.daily_chance_of_rain}%
+                <i class="fas fa-cloud-showers-heavy"></i> Rain - {forecast.forecastday[item].day.daily_chance_of_rain}%
                 </div>
                 <div className="uv-index-weekly">
-                  UV index -{forecast.forecastday[item].day.uv}
+                <i class="fas fa-sun"></i> UV index -{forecast.forecastday[item].day.uv}
                 </div>
               </div>
             </div>

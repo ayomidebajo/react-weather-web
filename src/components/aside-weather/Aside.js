@@ -19,7 +19,7 @@ const Aside = ({ getWeather, locate }) => {
           </div>
           <div className="date">
             <div className="day">
-              <Moment format="ddd">{date}</Moment>,
+              <Moment format="ddd">{date}</Moment>,{" "}
               <span className="time">
                 <Moment format="LT">{date}</Moment>
               </span>
