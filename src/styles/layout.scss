@@ -2,8 +2,9 @@
 @import "./weekly-weather.scss";
 @import "./today-highlights.scss";
 
+// #F6F6F7;
 body {
-  background: gainsboro;
+  background: #A4A6AC;
   font-family: "Quicksand", sans-serif;
 }
 
@@ -25,6 +26,7 @@ body {
   padding-top: 10px;
   background: white;
   border-radius: 50px 0 0 50px;
+  background-color: white;
 }
 
 .some {
@@ -41,10 +43,13 @@ body {
   grid-column: 1 / 5;
   grid-row: 1;
   padding-right: 30px;
+  width: 774px;
 }
 
 .today {
   grid-column: 1 / 5;
   grid-row: 2 / 7;
   padding-top: 20px;
+  width: 774px;
+  
 }

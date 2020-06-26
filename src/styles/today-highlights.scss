@@ -2,31 +2,70 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.8em;
+ 
+}
+
+.border-line-highlights {
+  margin-top: 20px ;
+  border: 0.5px solid rgb(216, 213, 213);
+  width: auto;
+}
+
+@-moz-document url-prefix() {
+  .border-line-highlights {
+    width: 777px;
+  }
 }
 
 .card-today {
-  width: 250px;
-  height: 145px;
+  width: 200px;
+  height: 150px;
   border-radius: 20px;
   background: white;
   cursor: pointer;
   transition: 0.4s;
+  padding: 25px;
 }
 
-.card-today .card_title {
-  text-align: center;
-  border-radius: 0px 0px 40px 40px;
-  font-family: sans-serif;
-  font-weight: bold;
-  font-size: 30px;
-  height: 40px;
-}
 
 .card-today:hover {
   box-shadow: 1px 1px 17px 2px rgba(0, 0, 0, 0.07);
 }
 
 .heading-h3 {
-  padding-bottom: 8px;
+  margin-top: 30px;
+  padding-top: 25px;
+  
+  margin-bottom: 40px;
+}
+
+@-moz-document url-prefix() {
+  .heading-h3 {
+    padding-top: 7px;
+  }
+}
+
+.heading-h4 {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(216, 213, 213);
+  margin-top: 5px;
   margin-bottom: 0;
 }
+
+.wind-speed {
+  display: flex;
+
+  .speed {
+    margin: 10px 0 15px 0;
+    font-size: 30px;
+  }
+}
+
+.wind-dir {
+  width: 70px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
