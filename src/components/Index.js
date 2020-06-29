@@ -4,7 +4,7 @@ import Today from "./today-highlights/Today";
 
 const Index = ({ Weather, getWeather, loading }) => {
   return (
-    <div className="">
+    <div className="highlights">
       <div className="some">
         <div className="weekly">
           <h2 className="heading-h2">Three day forecast</h2>

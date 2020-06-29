@@ -1,11 +1,16 @@
+@import "./mixins.scss";
 @import "./aside-weather.scss";
 @import "./weekly-weather.scss";
 @import "./today-highlights.scss";
 
 // #F6F6F7;
 body {
-  background: #A4A6AC;
+  background: #a4a6ac;
   font-family: "Quicksand", sans-serif;
+
+  @mixin for-phone-only {
+    display: none;
+  }
 }
 
 .dashboard--container {
@@ -20,6 +25,15 @@ body {
   grid-auto-rows: minmax(100px, auto);
 }
 
+.highlights {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  @mixin for-phone-only {
+    display: none;
+  }
+}
+
 .aside {
   grid-column: 1;
   grid-row: 1 / 5;
@@ -27,6 +41,11 @@ body {
   background: white;
   border-radius: 50px 0 0 50px;
   background-color: white;
+
+  @mixin for-phone-only {
+    width: 400px;
+    display: inline;
+  }
 }
 
 .some {
@@ -35,15 +54,21 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
+  @mixin for-phone-only {
+    display: none;
+    width: 0;
+  }
 }
-
-
 
 .weekly {
   grid-column: 1 / 5;
   grid-row: 1;
   padding-right: 30px;
   width: 774px;
+  @mixin for-phone-only {
+    display: none;
+    width: 0;
+  }
 }
 
 .today {
@@ -51,5 +76,8 @@ body {
   grid-row: 2 / 7;
   padding-top: 20px;
   width: 774px;
-  
+  @mixin for-phone-only {
+    display: none;
+    width: 0;
+  }
 }
