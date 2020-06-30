@@ -9,7 +9,7 @@ const Weekly = ({ weatherObj }) => {
         {Object.keys(weatherObj.forecast.forecastday).map((item, i) => (
           <div key={i} className="card">
             <div className="inner--container">
-              <div className="">
+              <div className="weekly-forecast">
                 <div className="day-weekly">
                   <Moment format="ddd">
                     {forecast.forecastday[item].date}
@@ -29,13 +29,16 @@ const Weekly = ({ weatherObj }) => {
               <div className="divider"></div>
               <div className="other-details">
                 <div className="humidity-weekly">
-                <i className="fas fa-tint"></i> humidity - {forecast.forecastday[item].day.avghumidity}
+                  <i className="fas fa-tint"></i> humidity -{" "}
+                  {forecast.forecastday[item].day.avghumidity}
                 </div>
                 <div className="rain-weekly">
-                <i className="fas fa-cloud-showers-heavy"></i> Rain - {forecast.forecastday[item].day.daily_chance_of_rain}%
+                  <i className="fas fa-cloud-showers-heavy"></i> Rain -{" "}
+                  {forecast.forecastday[item].day.daily_chance_of_rain}%
                 </div>
                 <div className="uv-index-weekly">
-                <i className="fas fa-sun"></i> UV index -{forecast.forecastday[item].day.uv}
+                  <i className="fas fa-sun"></i> UV index -
+                  {forecast.forecastday[item].day.uv}
                 </div>
               </div>
             </div>
@@ -44,25 +47,86 @@ const Weekly = ({ weatherObj }) => {
       </div>
     );
   } else {
-    // console.log("no data");
-    return <p>loading</p>;
+    return (
+      <div className="weekly--container">
+        <div className="card">
+          <div className="inner--container">
+            <div className="weekly-forecast">
+              <div className="day-weekly">
+                <Moment format="ddd"></Moment>
+              </div>
+              <div className="icon-weekly">
+                <i class="fas fa-cloud-sun"></i>
+              </div>
+              <div className="temp-weekly">25.5 C</div>
+            </div>
+            <div className="divider"></div>
+            <div className="other-details">
+              <div className="humidity-weekly">
+                <i className="fas fa-tint"></i> humidity - 70%
+              </div>
+              <div className="rain-weekly">
+                <i className="fas fa-cloud-showers-heavy"></i> Rain - 80%
+              </div>
+              <div className="uv-index-weekly">
+                <i className="fas fa-sun"></i> UV index - 5
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="card">
+          <div className="inner--container">
+            <div className="weekly-forecast">
+              <div className="day-weekly">
+                <Moment format="ddd"></Moment>
+              </div>
+              <div className="icon-weekly">
+                <i class="fas fa-cloud-sun"></i>
+              </div>
+              <div className="temp-weekly">25.5 C</div>
+            </div>
+            <div className="divider"></div>
+            <div className="other-details">
+              <div className="humidity-weekly">
+                <i className="fas fa-tint"></i> humidity - 70%
+              </div>
+              <div className="rain-weekly">
+                <i className="fas fa-cloud-showers-heavy"></i> Rain - 80%
+              </div>
+              <div className="uv-index-weekly">
+                <i className="fas fa-sun"></i> UV index - 5
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="card">
+          <div className="inner--container">
+            <div className="weekly-forecast">
+              <div className="day-weekly">
+                <Moment format="ddd"></Moment>
+              </div>
+              <div className="icon-weekly">
+                <i class="fas fa-cloud-sun"></i>
+              </div>
+              <div className="temp-weekly">25.5 C</div>
+            </div>
+            <div className="divider"></div>
+            <div className="other-details">
+              <div className="humidity-weekly">
+                <i className="fas fa-tint"></i> humidity - 70%
+              </div>
+              <div className="rain-weekly">
+                <i className="fas fa-cloud-showers-heavy"></i> Rain - 80%
+              </div>
+              <div className="uv-index-weekly">
+                <i className="fas fa-sun"></i> UV index - 5
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
   }
 };
-
-{
-  /* <Moment parse="ddd dddd">
-                {forecast.forecastday[item].date}
-             </Moment> */
-}
-
-{
-  /* <div className="weekly--container" key={i}>
-          <div className="card">
-            <div className="day">{forecast.forecastday.date}</div>
-            <div className="icon-weekly">{day.condition.icon}</div>
-            <div className="temp-weekly">{day.avgtemp_c}</div>
-          </div>
-        </div>  */
-}
 
 export default Weekly;

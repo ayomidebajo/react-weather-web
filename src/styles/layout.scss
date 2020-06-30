@@ -1,15 +1,16 @@
-@import "./mixins.scss";
+@import "./__mixins.scss";
 @import "./aside-weather.scss";
 @import "./weekly-weather.scss";
 @import "./today-highlights.scss";
 
-// #F6F6F7;
 body {
   background: #a4a6ac;
   font-family: "Quicksand", sans-serif;
+  margin: 0;
+  padding: 0;
 
-  @mixin for-phone-only {
-    display: none;
+  @include for-phone-only {
+    background: white;
   }
 }
 
@@ -23,14 +24,26 @@ body {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 45px;
   grid-auto-rows: minmax(100px, auto);
+  @include for-phone-only {
+    border: none;
+    background-color: white;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    grid-template-columns: 1fr;
+    grid-gap: 45px;
+  }
 }
 
 .highlights {
   height: 100%;
   width: 100%;
   display: flex;
-  @mixin for-phone-only {
-    display: none;
+  @include for-phone-only {
+    width: auto;
+    margin-top: 50px;
+    height: 100%;
+    text-align: center;
   }
 }
 
@@ -42,8 +55,9 @@ body {
   border-radius: 50px 0 0 50px;
   background-color: white;
 
-  @mixin for-phone-only {
-    width: 400px;
+  @include for-phone-only {
+    border: none;
+    width: 100%;
     display: inline;
   }
 }
@@ -54,9 +68,11 @@ body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 10px;
-  @mixin for-phone-only {
-    display: none;
-    width: 0;
+  @include for-phone-only {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    position: absolute;
+    width: auto;
   }
 }
 
@@ -65,9 +81,9 @@ body {
   grid-row: 1;
   padding-right: 30px;
   width: 774px;
-  @mixin for-phone-only {
-    display: none;
-    width: 0;
+  @include for-phone-only {
+    padding: 10px;
+    width: auto;
   }
 }
 
@@ -76,8 +92,9 @@ body {
   grid-row: 2 / 7;
   padding-top: 20px;
   width: 774px;
-  @mixin for-phone-only {
-    display: none;
-    width: 0;
+  @include for-phone-only {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: auto;
   }
 }

@@ -3,6 +3,11 @@
   gap: 1.4em;
   grid-template-columns: repeat(3, 1fr);
   width: auto;
+
+  @include for-phone-only {
+    grid-template-columns: 1fr;
+    // margin: 50px;
+  }
 }
 .heading-h2 {
   padding-top: 17px;
@@ -22,16 +27,11 @@
   cursor: pointer;
   transition: 0.4s;
   padding: 20px;
-}
 
-.card .card_title {
-  text-align: center;
-  border-radius: 0px 0px 40px 40px;
-  font-family: sans-serif;
-  font-weight: bold;
-  font-size: 30px;
-  margin-top: -80px;
-  height: 40px;
+  @include for-phone-only {
+    width: 320px;
+    padding: 20px;
+  }
 }
 
 .card:hover {
@@ -47,12 +47,30 @@
   height: 90px;
   margin: 0 0 0 5px;
   width: 0;
+  @include for-phone-only {
+    height: 120px;
+  }
+}
+
+.weekly-forecast {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: auto;
+
+  @include for-phone-only {
+    justify-content: space-between;
+  }
 }
 
 .other-details {
   font-size: 17px;
   line-height: 1.9em;
   margin-left: 10px;
+
+  @include for-phone-only {
+    font-size: 20px;
+  }
 }
 
 .fa-tint {
@@ -65,4 +83,10 @@
 
 .fa-sun {
   color: yellow;
+}
+
+.fa-cloud-sun {
+  font-size: 30px;
+  color: rgb(216, 213, 213);
+  // margin: 7px 0 5px 0;
 }

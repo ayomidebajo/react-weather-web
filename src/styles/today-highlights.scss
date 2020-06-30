@@ -2,6 +2,11 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.8em;
+
+  @include for-phone-only {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 }
 
 .border-line-highlights {
@@ -61,9 +66,9 @@
 }
 
 .wind-dir {
-  width: 70px;
+  width: 60px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .highlights--container {

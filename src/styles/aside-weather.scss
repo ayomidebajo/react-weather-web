@@ -3,6 +3,10 @@
   background-color: white;
   width: auto;
   border-radius: 50px 0 0 50px;
+
+  @include for-phone-only {
+    padding: 26px;
+  }
 }
 
 .dispay--container {
