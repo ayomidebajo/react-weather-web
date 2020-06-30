@@ -53,9 +53,7 @@
 }
 
 .weekly-forecast {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  line-height: 1.3em;
   height: auto;
 
   @include for-phone-only {
@@ -64,7 +62,7 @@
 }
 
 .other-details {
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.9em;
   margin-left: 10px;
 

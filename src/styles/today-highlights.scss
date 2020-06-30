@@ -18,6 +18,10 @@
 @-moz-document url-prefix() {
   .border-line-highlights {
     width: 777px;
+
+    @include for-phone-only {
+      width: auto;
+    }
   }
 }
 
@@ -29,6 +33,11 @@
   cursor: pointer;
   transition: 0.4s;
   padding: 25px;
+
+  @include for-phone-only {
+    padding: 0;
+    width: auto;
+  }
 }
 
 .card-today:hover {
@@ -63,12 +72,19 @@
     margin: 10px 0 15px 0;
     font-size: 30px;
   }
+
+  @include for-phone-only {
+    display: block;
+  }
 }
 
 .wind-dir {
   width: 60px;
   display: flex;
   justify-content: space-evenly;
+  @include for-phone-only {
+    width: auto;
+  }
 }
 
 .highlights--container {
@@ -89,4 +105,13 @@
 
 .current-text {
   font-size: 20px;
+}
+
+.wind--container {
+  display: flex;
+  width: 100px;
+
+  @include for-phone-only {
+    width: 100px;
+  }
 }

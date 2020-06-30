@@ -13,17 +13,21 @@ const Today = ({ weatherObj }) => {
           </div>
         </div>
         <div className="card-today">
-          <h4 className="heading-h4">Wind status</h4>
-          <div className="wind-speed">
-            <p className="speed">
-              {current.wind_kph} <span className="speed-km">km/h</span>
-            </p>
-          </div>
-          <div className="wind-dir">
-            <div className="location-circle">
-              <i class="fas fa-map-marker-alt"></i>
+          <div className="highlights--container">
+            <h4 className="heading-h4">Wind status</h4>
+            <div className="wind--container">
+              <div className="wind-speed">
+                <div className="speed">
+                  {current.wind_kph} <span className="speed-km">km/h</span>
+                </div>
+              </div>
+              <div className="wind-dir">
+                <div className="location-circle">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <span className="dir">{current.wind_dir}</span>
+              </div>
             </div>
-            <span className="dir">{current.wind_dir}</span>
           </div>
         </div>
 
